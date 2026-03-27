@@ -234,35 +234,70 @@
         display: block;
     }
 }
-/* --- AJUSTES ASISTENTE IA Y BANNER (MÓVIL) --- */
-@media (max-width: 768px) {
-    /* 1. Ajuste del Asistente (Chat) */
-    #ai-assistant-container, .chat-window, .ai-chat {
-        width: 95% !important;   /* Que no ocupe el 100% para que no toque los bordes */
-        height: 80vh !important; /* Limita el alto al 80% de la pantalla */
-        bottom: 10px !important;
-        right: 2.5% !important;
-        left: 2.5% !important;
+/* --- EXPERIENCIA DESKTOP NATIVA EN MÓVIL (LUXURY TECH) --- */
+@media (max-width: 900px) {
+    /* 1. Forzamos que la barra NO se rompa y se mantenga horizontal */
+    .nav-container {
+        display: flex !important;
+        flex-direction: row !important; 
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 10px 15px !important;
     }
 
-    .chat-header b, .close-chat {
-        padding: 10px;
-        font-size: 20px !important;
+    /* 2. Logo un poco más compacto para dar espacio */
+    .logo {
+        font-size: 17px !important;
+        white-space: nowrap;
+        margin-right: 10px;
     }
 
-    .oferta-bar, .promo-banner {
-        position: relative !important; 
-        top: 0 !important;
-        height: auto !important;
-        padding: 12px 5px !important;
-        font-size: 11px !important;
-        display: flex;
-        justify-content: center;
+    /* 3. Ajuste de botones Inicio, Marketplace y EDL (Horizontal como PC) */
+    .nav-links {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 12px !important; /* Espacio para que el dedo no toque dos a la vez */
         align-items: center;
     }
 
-    body {
-        padding-top: 0px !important; 
+    .nav-links a {
+        font-size: 15px !important; /* Un poco más grande para legibilidad */
+        padding: 8px 4px !important;
+        white-space: nowrap;
+        font-weight: 600;
+    }
+
+    /* 4. BOTÓN AI Y WHATSAPP (Aumento de tamaño estratégico) */
+    /* Ajusta estos IDs según como los tengas en tu código */
+    #ai-assistant-button, .whatsapp-float, .cart-trigger {
+        transform: scale(1.2); /* Aumenta el tamaño un 20% sin pixelar */
+        margin: 5px;
+        z-index: 9999;
+    }
+
+    /* 5. ARREGLO DEL BANNER DE OFERTA (Para que no se corte arriba) */
+    .oferta-bar {
+        font-size: 13px !important;
+        padding: 12px 0 !important;
+        min-height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100% !important;
+        position: relative !important; /* Empuja el menú hacia abajo para que no se tapen */
+    }
+
+    /* 6. VENTANA DEL ASISTENTE (Estilo PC pero que quepa) */
+    #ai-assistant-container {
+        width: 320px !important;
+        max-width: 85vw; /* No deja que sea más ancho que el celular */
+        height: 500px !important;
+        max-height: 80vh;
+        right: 15px !important;
+        bottom: 80px !important; /* Súbelo un poco para que no tape el botón de WA */
+        border: 2px solid var(--primary);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 }
     </style>
