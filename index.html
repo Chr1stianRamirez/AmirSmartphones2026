@@ -218,6 +218,29 @@
             .shop-layout { grid-template-columns: 1fr; }
             .cart-sidebar { position: static; margin-top: 30px; }
             .hero h1 { font-size: 45px; }
+      /* --- FIX FINAL: BARRA DE OFERTA VISIBLE --- */
+@media screen and (max-width: 900px) {
+    /* 1. Bajamos la barra de oferta para que no la tape el menú */
+    .oferta-bar, #timer-container, .promo-banner {
+        margin-top: 60px !important; /* Este es el alto de tu barra de menú */
+        position: relative !important;
+        display: block !important;
+        z-index: 998 !important;
+    }
+
+    /* 2. Aseguramos que el contenido principal no se pegue a la oferta */
+    #home, .hero-section, #shop, #edl {
+        padding-top: 10px !important;
+    }
+
+    /* 3. Mantenemos el menú siempre arriba de todo */
+    #main-nav, .navbar {
+        z-index: 1000 !important;
+        position: fixed !important;
+        top: 0 !important;
+        width: 100% !important;
+    }
+}
         }
    @media (max-width: 768px) {
     .nav-container { flex-direction: column; padding: 10px 5px; gap: 8px; }
