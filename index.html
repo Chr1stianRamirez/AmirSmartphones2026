@@ -218,52 +218,78 @@
             .shop-layout { grid-template-columns: 1fr; }
             .cart-sidebar { position: static; margin-top: 30px; }
             .hero h1 { font-size: 45px; }
-      /* --- FIX FINAL: BARRA DE OFERTA VISIBLE --- */
-/* --- AMIR SMARTPHONES: FIX TOTAL DE CAPAS --- */
+
 @media screen and (max-width: 900px) {
-    /* 1. Menú Fijo al tope (Capa 1) */
+    /* 1. EL MENÚ: Siempre al tope */
     #main-nav, .navbar {
+        z-index: 1000 !important;
         position: fixed !important;
         top: 0 !important;
         width: 100% !important;
-        height: 60px !important; /* Altura estándar */
-        z-index: 1000 !important;
         background: #000 !important;
     }
 
-    /* 2. Barra de Oferta (Capa 2 - Justo debajo del menú) */
-    .oferta-bar, #timer-container, .promo-banner {
-        position: fixed !important;
-        top: 60px !important; /* Empieza donde termina el menú */
-        width: 100% !important;
-        z-index: 999 !important;
-        height: auto !important;
-        padding: 10px 0 !important;
-        display: block !important;
-    }
-
-    /* 3. CONTENIDO (Marketplace y EDL) - Empieza después de las barras */
-    /* Sumamos el alto del menú (60) + el alto de la oferta (aprox 40) = 100px */
-    #home, #shop, #edl, .hero-section, .marketplace-section, .edl-section {
-        padding-top: 110px !important; /* ESTE ESPACIO EVITA QUE SE ENCONEN */
-        margin-top: 0 !important;
+    .nav-container {
         display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
+        flex-direction: row !important; 
+        justify-content: space-between !important;
+        padding: 10px 15px !important;
     }
 
-    /* 4. Alineación de las Fichas (Para que no haya huecos) */
+    .nav-links a {
+        font-size: 14px !important;
+        padding: 8px 5px !important;
+        white-space: nowrap;
+        font-weight: 600;
+    }
+
+    /* 2. LA OFERTA: Justo debajo del menú sin taparse */
+    .oferta-bar, #timer-container, .promo-banner {
+        margin-top: 55px !important; /* Baja para salir de debajo del menú */
+        position: relative !important;
+        display: block !important;
+        z-index: 998 !important;
+        padding: 10px 5px !important;
+        font-size: 12px !important;
+    }
+
+    /* 3. MARKETPLACE Y EDL: Alineación total arriba */
+    #shop, #edl, .marketplace-section, .edl-section {
+        padding-top: 5px !important; /* Quita el espacio vacío */
+        margin-top: 0 !important;
+        min-height: auto !important;
+    }
+
     .product-grid, .edl-grid, .grid-container {
-        padding-top: 10px !important;
+        padding-top: 0 !important;
+        margin-top: 0 !important;
         display: flex !important;
         flex-wrap: wrap !important;
         justify-content: center !important;
+        align-items: flex-start !important; /* Empieza desde arriba */
         gap: 15px !important;
     }
 
-    /* 5. Aseguramos que los botones de AI y WA sigan grandes */
+    /* 4. LAS FICHAS: Legibles y con botones claros */
+    .product-card, .edl-card {
+        margin-top: 0 !important;
+        margin-bottom: 20px !important;
+        padding-bottom: 15px !important;
+    }
+
+    .product-card .add-to-cart-btn, .buy-now-btn {
+        font-size: 15px !important;
+        padding: 12px !important;
+        font-weight: bold !important;
+        width: 90% !important;
+        margin: 10px auto !important;
+        display: block !important;
+    }
+
+    /* 5. BOTONES FLOTANTES: Grandes y funcionales */
     #ai-assistant-button, .whatsapp-float {
         transform: scale(1.3) !important;
+        bottom: 25px !important;
         z-index: 10001 !important;
     }
 }
