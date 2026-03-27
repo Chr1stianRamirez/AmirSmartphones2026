@@ -234,70 +234,63 @@
         display: block;
     }
 }
-/* --- EXPERIENCIA DESKTOP NATIVA EN MÓVIL (LUXURY TECH) --- */
-@media (max-width: 900px) {
-    /* 1. Forzamos que la barra NO se rompa y se mantenga horizontal */
+/* --- AMIR SMARTPHONES: OPTIMIZACIÓN DE ELEMENTOS TÁCTILES --- */
+@media screen and (max-width: 900px) {
+    /* 1. Barra de Navegación Arriba (Captura 1, tope) */
+    /* Mantenemos la estructura horizontal, pero escalamos los links */
     .nav-container {
         display: flex !important;
         flex-direction: row !important; 
-        flex-wrap: nowrap !important;
         justify-content: space-between !important;
-        align-items: center !important;
-        padding: 10px 15px !important;
+        padding: 12px 15px !important;
     }
 
-    /* 2. Logo un poco más compacto para dar espacio */
-    .logo {
-        font-size: 17px !important;
-        white-space: nowrap;
-        margin-right: 10px;
-    }
-
-    /* 3. Ajuste de botones Inicio, Marketplace y EDL (Horizontal como PC) */
-    .nav-links {
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 12px !important; /* Espacio para que el dedo no toque dos a la vez */
-        align-items: center;
-    }
-
+    /* Escalamos 'INICIO', 'MARKETPLACE', 'SOPORTE EDL' */
     .nav-links a {
-        font-size: 15px !important; /* Un poco más grande para legibilidad */
-        padding: 8px 4px !important;
+        font-size: 15px !important; /* Más grande para que sea legible y clicable */
+        padding: 8px 5px !important;
         white-space: nowrap;
         font-weight: 600;
+        cursor: pointer;
     }
 
-    /* 4. BOTÓN AI Y WHATSAPP (Aumento de tamaño estratégico) */
-    /* Ajusta estos IDs según como los tengas en tu código */
-    #ai-assistant-button, .whatsapp-float, .cart-trigger {
-        transform: scale(1.2); /* Aumenta el tamaño un 20% sin pixelar */
-        margin: 5px;
-        z-index: 9999;
+    /* 2. Escalado de los Botones Flotantes (Captura 1, abajo) */
+    /* Agrandamos el botón de AI (Azul) y WhatsApp (Verde) */
+    /* Ajusta estos selectores si los tienes diferentes en tu HTML */
+    #ai-assistant-button, 
+    .whatsapp-float, 
+    .chat-trigger-btn {
+        transform: scale(1.3) !important; /* Un 30% más grandes */
+        transform-origin: bottom right; /* Asegura que crezcan desde la esquina */
+        filter: drop-shadow(0 5px 15px rgba(0,0,0,0.4)); /* Más sombra para que resalten */
+        z-index: 10000;
     }
 
-    /* 5. ARREGLO DEL BANNER DE OFERTA (Para que no se corte arriba) */
-    .oferta-bar {
-        font-size: 13px !important;
-        padding: 12px 0 !important;
-        min-height: 45px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100% !important;
-        position: relative !important; /* Empuja el menú hacia abajo para que no se tapen */
+    /* 3. Área de Marketplace (Captura 2) */
+    /* Aseguramos que la rejilla de productos se vea bien, manteniendo el estilo PC */
+    .product-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 20px;
+        padding: 20px 10px;
     }
 
-    /* 6. VENTANA DEL ASISTENTE (Estilo PC pero que quepa) */
-    #ai-assistant-container {
-        width: 320px !important;
-        max-width: 85vw; /* No deja que sea más ancho que el celular */
-        height: 500px !important;
-        max-height: 80vh;
-        right: 15px !important;
-        bottom: 80px !important; /* Súbelo un poco para que no tape el botón de WA */
-        border: 2px solid var(--primary);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    /* Escalamos un poco los botones de 'AÑADIR AL CARRITO' */
+    .product-card .add-to-cart-btn {
+        font-size: 16px !important;
+        padding: 12px !important;
+        width: 100%;
+        font-weight: bold;
+    }
+
+    /* Aseguramos que el 'Google Pixel 7' y otros no se corten */
+    .product-card h3 {
+        font-size: 17px !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
     </style>
