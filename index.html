@@ -232,6 +232,47 @@
         text-align: center;
         width: 100%;
         display: block;
+  /* --- AMIR SMARTPHONES: REPOSICIONAMIENTO DE FICHAS MARKETPLACE --- */
+@media screen and (max-width: 900px) {
+    /* 1. Recalibramos el contenedor principal del Marketplace (Captura 2) */
+    .shop-container, .marketplace-section, .product-grid {
+        display: flex !important;
+        flex-direction: row !important; /* Mantenemos el estilo PC horizontal */
+        flex-wrap: wrap !important;
+        justify-content: center !important; /* CENTRADO HORIZONTAL DE FICHAS */
+        align-items: center !important;    /* CENTRADO VERTICAL DE FICHAS */
+        
+        /* ESTE ES EL AJUSTE CLAVE: */
+        margin-top: -10px !important; /* Compensa un poco el padding-top del body */
+        padding: 20px 10px !important;
+        width: 100% !important;
+        min-height: calc(100vh - 120px); /* Asegura que el contenedor ocupe la pantalla menos el menú y contador */
+    }
+
+    /* 2. Ajuste de la Ficha Individual (.product-card, Captura 2 y 3) */
+    .product-card {
+        width: 280px !important; /* Tamaño fijo estilo PC */
+        max-width: 90%;
+        margin: 15px !important; /* Espacio para que respiren */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important; /* Empuja el botón al fondo */
+        border-radius: 20px !important;
+        
+        /* Arreglo para que el botón no se tape */
+        overflow: visible !important; 
+        padding-bottom: 20px !important; /* Espacio extra abajo para el botón */
+    }
+
+    /* 3. El Botón (¡LO QUIERO AHORA!) */
+    /* Aseguramos que siempre esté centrado y visible */
+    .add-to-cart-btn, .buy-now-btn, .shop-container .action-btn {
+        margin: 10px auto 0 auto !important; /* Centrado y con margen arriba */
+        width: 90% !important;
+        font-weight: bold;
+        display: block !important;
+    }
+} 
     }
 }
 /* --- ARREGLO DE POSICIONAMIENTO (PARA QUE EL CONTADOR NO SE ESCONDA) --- */
