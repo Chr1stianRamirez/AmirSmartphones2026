@@ -234,7 +234,32 @@
         display: block;
     }
 }
-/* --- AMIR SMARTPHONES: OPTIMIZACIÓN DE ELEMENTOS TÁCTILES --- */
+/* --- ARREGLO DE POSICIONAMIENTO (PARA QUE EL CONTADOR NO SE ESCONDA) --- */
+@media screen and (max-width: 900px) {
+    
+    /* 1. Empujamos el cuerpo de la página hacia abajo */
+    body {
+        padding-top: 70px !important; /* Ajusta este número si el menú es más alto */
+    }
+
+    /* 2. Forzamos que el contador sea visible y no se meta debajo */
+    .oferta-bar, #timer-container, .promo-banner {
+        display: block !important;
+        position: relative !important; /* Esto hace que respete su lugar y no flote */
+        z-index: 999 !important;
+        margin-top: 0 !important;
+        padding: 15px 5px !important;
+        background: #ff4500 !important; /* El naranja de oferta para que resalte */
+        font-weight: bold;
+        text-align: center;
+        width: 100% !important;
+    }
+
+    /* 3. Ajuste de los productos para que no se peguen al contador */
+    #home, #shop, .hero-section {
+        margin-top: 20px !important;
+    }
+}
 @media screen and (max-width: 900px) {
     /* 1. Barra de Navegación Arriba (Captura 1, tope) */
     /* Mantenemos la estructura horizontal, pero escalamos los links */
