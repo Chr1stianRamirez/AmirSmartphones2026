@@ -219,161 +219,52 @@
             .cart-sidebar { position: static; margin-top: 30px; }
             .hero h1 { font-size: 45px; }
       /* --- FIX FINAL: BARRA DE OFERTA VISIBLE --- */
+/* --- AMIR SMARTPHONES: FIX TOTAL DE CAPAS --- */
 @media screen and (max-width: 900px) {
-    /* 1. Bajamos la barra de oferta para que no la tape el menú */
-    .oferta-bar, #timer-container, .promo-banner {
-        margin-top: 60px !important; /* Este es el alto de tu barra de menú */
-        position: relative !important;
-        display: block !important;
-        z-index: 998 !important;
-    }
-
-    /* 2. Aseguramos que el contenido principal no se pegue a la oferta */
-    #home, .hero-section, #shop, #edl {
-        padding-top: 10px !important;
-    }
-
-    /* 3. Mantenemos el menú siempre arriba de todo */
+    /* 1. Menú Fijo al tope (Capa 1) */
     #main-nav, .navbar {
-        z-index: 1000 !important;
         position: fixed !important;
         top: 0 !important;
         width: 100% !important;
-    }
-}
-        }
-   @media (max-width: 768px) {
-    .nav-container { flex-direction: column; padding: 10px 5px; gap: 8px; }
-    .logo { font-size: 19px !important; letter-spacing: -1px; text-align: center; }
-    .nav-links { width: 100%; justify-content: center; gap: 6px; font-size: 12px; display: flex; flex-wrap: wrap; }
-    .nav-links a { padding: 4px 6px; white-space: nowrap; }
-    .cart-trigger { margin-left: 0; padding: 5px; }
-    
-    .oferta-bar, .promo-text, #timer, #contador, .countdown {
-        font-size: 11px !important;
-        padding: 6px 2px !important;
-        text-align: center;
-        width: 100%;
-        display: block;
-  /* --- AMIR SMARTPHONES: REPOSICIONAMIENTO DE FICHAS MARKETPLACE --- */
-/* --- AMIR SMARTPHONES: FIX ALINEACIÓN FINAL --- */
-@media screen and (max-width: 900px) {
-    /* 1. Eliminamos espacios muertos en las secciones principales */
-    #shop, #edl, .marketplace-section, .edl-section {
-        padding-top: 0 !important;
-        margin-top: 0 !important;
-        min-height: auto !important;
+        height: 60px !important; /* Altura estándar */
+        z-index: 1000 !important;
+        background: #000 !important;
     }
 
-    /* 2. Subimos las fichas para que no haya hueco arriba */
-    .product-grid, .edl-grid, .grid-container {
-        padding-top: 5px !important; /* Pegado casi al banner */
-        margin-top: 0 !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: flex-start !important; /* Las alinea al tope superior */
-    }
-
-    /* 3. Ajuste de la Ficha (Marketplace y EDL) */
-    .product-card, .edl-card, .card {
-        margin-top: 0 !important;
-        margin-bottom: 15px !important;
-        vertical-align: top !important;
-    }
-
-    /* 4. Mantenemos los botones flotantes grandes como querías */
-    .whatsapp-float, #ai-assistant-button {
-        transform: scale(1.3) !important;
-        bottom: 20px !important;
-    }
-
-    /* 5. Aseguramos que el Banner de oferta no empuje de más */
-    .oferta-bar {
-        margin-bottom: 5px !important;
-    }
-}
-/* --- ARREGLO DE POSICIONAMIENTO (PARA QUE EL CONTADOR NO SE ESCONDA) --- */
-@media screen and (max-width: 900px) {
-    
-    /* 1. Empujamos el cuerpo de la página hacia abajo */
-    body {
-        padding-top: 70px !important; /* Ajusta este número si el menú es más alto */
-    }
-
-    /* 2. Forzamos que el contador sea visible y no se meta debajo */
+    /* 2. Barra de Oferta (Capa 2 - Justo debajo del menú) */
     .oferta-bar, #timer-container, .promo-banner {
-        display: block !important;
-        position: relative !important; /* Esto hace que respete su lugar y no flote */
-        z-index: 999 !important;
-        margin-top: 0 !important;
-        padding: 15px 5px !important;
-        background: #ff4500 !important; /* El naranja de oferta para que resalte */
-        font-weight: bold;
-        text-align: center;
+        position: fixed !important;
+        top: 60px !important; /* Empieza donde termina el menú */
         width: 100% !important;
+        z-index: 999 !important;
+        height: auto !important;
+        padding: 10px 0 !important;
+        display: block !important;
     }
 
-    /* 3. Ajuste de los productos para que no se peguen al contador */
-    #home, #shop, .hero-section {
-        margin-top: 20px !important;
-    }
-}
-@media screen and (max-width: 900px) {
-    /* 1. Barra de Navegación Arriba (Captura 1, tope) */
-    /* Mantenemos la estructura horizontal, pero escalamos los links */
-    .nav-container {
+    /* 3. CONTENIDO (Marketplace y EDL) - Empieza después de las barras */
+    /* Sumamos el alto del menú (60) + el alto de la oferta (aprox 40) = 100px */
+    #home, #shop, #edl, .hero-section, .marketplace-section, .edl-section {
+        padding-top: 110px !important; /* ESTE ESPACIO EVITA QUE SE ENCONEN */
+        margin-top: 0 !important;
         display: flex !important;
-        flex-direction: row !important; 
-        justify-content: space-between !important;
-        padding: 12px 15px !important;
+        flex-direction: column !important;
+        align-items: center !important;
     }
 
-    /* Escalamos 'INICIO', 'MARKETPLACE', 'SOPORTE EDL' */
-    .nav-links a {
-        font-size: 15px !important; /* Más grande para que sea legible y clicable */
-        padding: 8px 5px !important;
-        white-space: nowrap;
-        font-weight: 600;
-        cursor: pointer;
-    }
-
-    /* 2. Escalado de los Botones Flotantes (Captura 1, abajo) */
-    /* Agrandamos el botón de AI (Azul) y WhatsApp (Verde) */
-    /* Ajusta estos selectores si los tienes diferentes en tu HTML */
-    #ai-assistant-button, 
-    .whatsapp-float, 
-    .chat-trigger-btn {
-        transform: scale(1.3) !important; /* Un 30% más grandes */
-        transform-origin: bottom right; /* Asegura que crezcan desde la esquina */
-        filter: drop-shadow(0 5px 15px rgba(0,0,0,0.4)); /* Más sombra para que resalten */
-        z-index: 10000;
-    }
-
-    /* 3. Área de Marketplace (Captura 2) */
-    /* Aseguramos que la rejilla de productos se vea bien, manteniendo el estilo PC */
-    .product-grid {
+    /* 4. Alineación de las Fichas (Para que no haya huecos) */
+    .product-grid, .edl-grid, .grid-container {
+        padding-top: 10px !important;
         display: flex !important;
-        flex-direction: row !important;
         flex-wrap: wrap !important;
         justify-content: center !important;
-        gap: 20px;
-        padding: 20px 10px;
+        gap: 15px !important;
     }
 
-    /* Escalamos un poco los botones de 'AÑADIR AL CARRITO' */
-    .product-card .add-to-cart-btn {
-        font-size: 16px !important;
-        padding: 12px !important;
-        width: 100%;
-        font-weight: bold;
-    }
-
-    /* Aseguramos que el 'Google Pixel 7' y otros no se corten */
-    .product-card h3 {
-        font-size: 17px !important;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    /* 5. Aseguramos que los botones de AI y WA sigan grandes */
+    #ai-assistant-button, .whatsapp-float {
+        transform: scale(1.3) !important;
+        z-index: 10001 !important;
     }
 }
     </style>
